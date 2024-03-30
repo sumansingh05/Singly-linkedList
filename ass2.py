@@ -20,7 +20,7 @@ class LinkedList:
             self.head = newNode
     
 
-    #add a new node at the end
+    #add a new node at the end of the singly linked list
     def insertAtEnd(self,data):
         newNode = Node(data)
         if self.is_empty():
