@@ -9,6 +9,7 @@ class SLL:
     def __init__(self):
         self.head = None
         self.tail = None
+        self.count = 0
 
 
     def is_empty(self):
@@ -23,7 +24,8 @@ class SLL:
         else:
             newNode.next = self.head
             self.head = newNode
-        
+        self.count += 1
+
     #insert a node at the end of the singly linked list
     def insertAtEnd(self,data):
         newNode = Node(data)
@@ -33,6 +35,7 @@ class SLL:
         else:
             self.tail.next = newNode
             self.tail = newNode
+        self.count += 1
 
     def search(self,data):
         current = self.head
@@ -54,6 +57,7 @@ class SLL:
                 newNode = Node(data)
                 newNode.next = current.next
                 current.next = newNode
+                self.count += 1
 
     #prints the elements present inside the Linked List
     def display(self):
@@ -62,6 +66,7 @@ class SLL:
         while(current):
             print(current.item,end=' ')
             current = current.next
+        print()
 
     #deleting a node at the starting of the linked list
     def delete_first(self):
@@ -69,11 +74,13 @@ class SLL:
             print("List is empty")
         else:
             self.head=self.head.next
+            self.count -= 1
 
     #deleting a node at the end of the linked list
     def delete_last(self):
         if self.is_empty():
             print("List is empty")
+            return
         elif self.head.next is None:
             self.head = None
             self.tail = None
@@ -83,6 +90,7 @@ class SLL:
                current = current.next 
             current.next = None
             self.tail = current
+        self.count -= 1
 
      #delete  a node in between the nodes of the singly linked List 
     def deleteInside(self,data):
@@ -98,8 +106,10 @@ class SLL:
                 while(current.next != None):
                     if(current.next.item == data):
                         current.next = current.next.next
+                        self.count -= 1
                         return
                     current = current.next
+               
                          
              
              
@@ -111,13 +121,15 @@ list.insertAtEnd(10)
 list.insertAtEnd(11)
 list.insert_after(list.search(5),6)
 list.display()
+print("Size of Linked List is ",list.count)
 print()
 print("Head of Singly linked List ",list.head.item)
 print("Tail of Singly linked List ",list.tail.item)
-print()
+
 list.deleteInside(11)
 list.display()
 print()
+print("Size of Linked List is ",list.count)
 print("Head of Singly linked List ",list.head.item)
 print("Tail of Singly linked List ",list.tail.item)
 
