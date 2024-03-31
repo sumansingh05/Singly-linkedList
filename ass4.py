@@ -2,7 +2,7 @@ class Node:
     def __init__(self,data):
         self.item = data
         self.next = None
-
+    
 class SLL:
     def __init__(self):
         self.head = None
@@ -37,6 +37,7 @@ list.append(1)
 list.append(2)
 list.append(3)
 list.append(4)
+list.append(5)
 list.display()
 print("Size of Singly Linked List is ",list.count)
     
