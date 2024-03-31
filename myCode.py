@@ -120,7 +120,7 @@ list = SLL()
 print(list.is_empty())
 print("Size of Singly Linked List is ",list.count)
 list.insertAtHead(5)
-
+list.insertAtTail(7)
 print("Size of Singly Linked List is ",list.count)
 list.display()
 print("Head of Singly Linked List ",list.head.item)
