@@ -40,8 +40,7 @@ class SLL:
         if self.is_empty():
             self.head = newNode            
         else:
-            self.tail.next = newNode
-            newNode.next = None
+            self.tail.next = newNode            
         self.tail = newNode
         self.count += 1
 
