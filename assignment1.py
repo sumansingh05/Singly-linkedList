@@ -37,6 +37,7 @@ class SLL:
             self.tail = newNode
         self.count += 1
 
+    #search a node is present in the linked list or not
     def search(self,data):
         current = self.head
         while(current!=None):
@@ -71,10 +72,13 @@ class SLL:
     #deleting a node at the starting of the linked list
     def delete_first(self):
         if self.is_empty():
-            print("List is empty")
+            raise IndexError("Linked List is empty")
+        elif self.head.next is None:
+            self.head = None
+            self.tail = None
         else:
-            self.head=self.head.next
-            self.count -= 1
+            self.head = self.head.next
+        self.count -= 1
 
     #deleting a node at the end of the linked list
     def delete_last(self):
@@ -108,25 +112,24 @@ class SLL:
                         current.next = current.next.next
                         self.count -= 1
                         return
-                    current = current.next
-               
-                         
+                    current = current.next          
+                     
+  
              
-             
-
 list = SLL()            
 list.insertAtStart(5)
-list.insertAtStart(1)
-list.insertAtEnd(10)
-list.insertAtEnd(11)
-list.insert_after(list.search(5),6)
+# list.insertAtStart(1)
+# list.insertAtEnd(10)
+# list.insertAtEnd(11)
+# list.insert_after(list.search(5),6)
 list.display()
 print("Size of Linked List is ",list.count)
 print()
 print("Head of Singly linked List ",list.head.item)
 print("Tail of Singly linked List ",list.tail.item)
 
-list.deleteInside(11)
+# list.deleteInside(11)
+list.delete_first()
 list.display()
 print()
 print("Size of Linked List is ",list.count)
